@@ -22,7 +22,7 @@ install(show_locals=True)
 
 def label1(text):
     panel = Panel.fit(
-        f"""{text}""",
+        f"""[green_yellow]{text}[/green_yellow]""",
         title="<:",
         subtitle=":>",
         style="Italic",
