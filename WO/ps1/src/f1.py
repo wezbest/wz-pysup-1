@@ -1,6 +1,7 @@
 # Main python file for interacting with superpanty
 
 import os
+from .utils import label1
 from supabase import create_client, Client
 from dotenv import load_dotenv
 from rich import print as rprint  # For rprinting
@@ -15,6 +16,18 @@ key: str = os.environ.get("SUP")
 supabase: Client = create_client(url, key)
 
 
+rez = supabase.table("dancers").select("*").execute()
+
+
 def read_table():
-    response = supabase.table("dancers").select("*").execute()
-    pprint(response)
+    label1("Printing with pprint")
+    pprint(rez)
+
+
+# Reading specific data
+def read_data():
+    label1("Reading Specific data data")
+    rprint(rez)
+
+
+# Inserting Data
